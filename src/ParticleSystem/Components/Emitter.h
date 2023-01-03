@@ -57,7 +57,7 @@ class Emitter{
 		const ofColor color;
 		const float emissionRate;
 
-		std::vector<Force*> forces = {};
+		std::vector<Force*> forces;
 
 		Emitter(
 			float radiusStart, float radiusEnd,

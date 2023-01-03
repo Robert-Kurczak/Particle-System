@@ -3,7 +3,7 @@
 
 ParticleSystem particleSystem;
 Emitter emitter01(
-	2, 10,										//radius1
+	1, 5,										//radius
 	1, 10,										//mass
 	ofVec3f(0, 0, 0), ofVec3f(100, 100, 100),	//position
 	ofVec3f(50, 50, 50), ofVec3f(-50, -50, -50),//velocity
