@@ -1,10 +1,10 @@
 class Emitter{
 	private:
 		//---Parameters---
-		std::vector<Particle*>& particlesVector;
-		std::vector<ParticleAttrGenerator*> generatorsVector = {
-			new BoxPositionGenerator(ofVec3f(-40, -40, -40), ofVec3f(40, 40, 40))
+		std::vector<Particle>& particlesVector;
 
+		std::vector<std::shared_ptr<ParticleAttrGenerator>> generatorsVector = {
+			std::make_shared<BoxPositionGenerator>(ofVec3f(-40, -40, -40), ofVec3f(40, 40, 40))
 		};
 
 		float emissionRate;
@@ -14,11 +14,11 @@ class Emitter{
 
 		float timer = 0;
 
-		Particle* getNewParticle(){
-			Particle* particle = new SphereParticle();
+		Particle getNewParticle(){			
+			Particle particle;
 
 			for(size_t i = 0; i < generatorsVector.size(); i++){
-				generatorsVector[i] -> generate(*particle);
+				generatorsVector[i] -> generate(particle);
 			}
 
 			return particle;
@@ -27,7 +27,7 @@ class Emitter{
 	public:
 		Emitter
 		(
-			std::vector<Particle*>& particlesVector,
+			std::vector<Particle>& particlesVector,
 			float emissionRate,
 			float startParticlesAmount,
 			float maxParticlesAmount

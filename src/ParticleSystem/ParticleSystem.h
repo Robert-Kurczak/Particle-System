@@ -8,17 +8,17 @@
 
 class ParticleSystem{
 	private:
-		std::vector<Particle*> particlesVector;
+		std::vector<Particle> particlesVector;
 
 		Emitter emitter = Emitter(particlesVector, 20, 100, 5000);
 
-		std::vector<ParticleUpdater*> updaters = {
-			new LifetimeUpdater,
-			new GravityUpdater
+		std::vector<std::shared_ptr<ParticleUpdater>> updaters = {
+			std::make_shared<LifetimeUpdater>(),
+			std::make_shared<GravityUpdater>()
 		};
 
 public:
-	void updateAndDraw()	{
+	void updateAndDraw(){
 		float deltaTime = ofGetLastFrameTime();
 
 		// Possibly adding new particles to particlesVector
@@ -28,10 +28,10 @@ public:
 			// if(!particlesVector[particleIndex] -> alive) continue;
 
 			for (size_t updaterIndex = 0; updaterIndex < updaters.size(); updaterIndex++){
-				updaters[updaterIndex]->update(deltaTime, *particlesVector[particleIndex]);
+				updaters[updaterIndex]->update(deltaTime, particlesVector[particleIndex]);
 			}
 
-			particlesVector[particleIndex]->draw();
+			particlesVector[particleIndex].draw();
 		}
 	}
 };
