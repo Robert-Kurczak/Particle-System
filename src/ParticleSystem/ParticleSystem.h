@@ -1,41 +1,35 @@
 #include "ofMain.h"
-#include "Components/Force.h"
-#include "Components/Particle.h"
-#include "Components/Emitter.h"
 #include <vector>
+#include "Components/Particle.h"
+#include "Components/Generator.h"
+#include "Components/Emitter.h"
+#include "Components/ParticleUpdater.h"
 
 class ParticleSystem{
 	private:
-		std::vector<Particle> particlesVector = {};
-		std::vector<Emitter> emittersVector = {};
+		std::vector<Particle*> particlesVector;
+		
+		Emitter emitter = Emitter(particlesVector, 20, 100, 5000);
+
+		std::vector<ParticleUpdater*> updaters = {
+			new LifetimeUpdater,
+			new GravityUpdater
+		};
 
 	public:
-		ParticleSystem(){}
+		void updateAndDraw(){
+			float deltaTime = ofGetLastFrameTime();
 
-		void addEmiter(Emitter emitter){
-			emittersVector.push_back(emitter);
-		}
+			emitter.update(deltaTime);
 
-		void updateParticles(){
-			for(size_t i = 0; i < emittersVector.size(); i++){
-				emittersVector[i].update(particlesVector, ofGetLastFrameTime());
-			}
+			for(size_t particleIndex = 0; particleIndex < particlesVector.size(); particleIndex++){
+				// if(!particlesVector[particleIndex] -> alive) continue;
 
-			auto it = particlesVector.begin();
-			while(it != particlesVector.end()){
-				if(it -> lifeTime <= 0){
-					it = particlesVector.erase(it);
+				for(size_t updaterIndex = 0; updaterIndex < updaters.size(); updaterIndex++){
+					updaters[updaterIndex] -> update(deltaTime, *particlesVector[particleIndex]);
 				}
-				else{
-					it -> update(ofGetLastFrameTime());
-					it++;
-				}
-			}
-		}
 
-		void drawParticles(){
-			for(size_t i = 0; i < particlesVector.size(); i++){
-				particlesVector[i].draw();
+				particlesVector[particleIndex] -> draw();
 			}
 		}
 };

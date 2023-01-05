@@ -1,48 +1,37 @@
 class Particle{
 	public:
-		float radius;
-		float mass;
 		ofVec3f position;
 		ofVec3f velocity;
 		float lifeTime;
+		float mass;
 		ofColor color;
-		std::vector<Force*> forces;
 
-		Particle(
-			float radius,
-			float mass,
-			ofVec3f position,
-			ofVec3f velocity,
-			float lifeTime,
-			ofColor color,
-			std::vector<Force*>& forces
-		):
-		radius{radius},
-		mass{mass},
-		position{position},
-		velocity{velocity},
-		lifeTime{lifeTime},
-		color{color},
-		forces{forces}
-		{}
+		bool alive = true;
 
-		void update(double deltaTime){
-			lifeTime -= deltaTime;
+		virtual void draw() = 0;
+};
 
-			if(lifeTime <= 0) return;
+class SphereParticle: public Particle{
+	public:
+		float radius = 1;
 
-			ofVec3f acceleration(0, 0, 0);
+		SphereParticle(){}
+		SphereParticle(float radius): radius(radius){}
 
-			for(size_t i = 0; i < forces.size(); i++){
-				acceleration += forces[i] -> getAcceleration();
-			}
-
-			velocity += acceleration * deltaTime;
-			position += velocity * deltaTime;
-		}
-
-		void draw(){
+		void draw() override{
 			ofSetColor(color);
 			ofDrawSphere(position, radius);
+		}
+};
+
+class BoxParticle: public Particle{
+	public:
+		ofVec3f size;
+
+		BoxParticle(ofVec3f size): size(size){}
+
+		void draw() override{
+			ofSetColor(color);
+			ofDrawBox(position, size.x, size.y, size.z);
 		}
 };

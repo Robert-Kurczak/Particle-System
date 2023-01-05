@@ -533,9 +533,10 @@ obj/linux64/Release/src/ofApp.o: \
  /home/robert/myLibs/openFrameworks/libs/openFrameworks/3d/ofCamera.h \
  /home/robert/myLibs/openFrameworks/libs/openFrameworks/3d/ofEasyCam.h \
  /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/ParticleSystem.h \
- /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Force.h \
  /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Particle.h \
- /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Emitter.h
+ /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Generator.h \
+ /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Emitter.h \
+ /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/ParticleUpdater.h
 /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ofApp.h:
 /home/robert/myLibs/openFrameworks/libs/openFrameworks/ofMain.h:
 /home/robert/myLibs/openFrameworks/libs/openFrameworks/utils/ofConstants.h:
@@ -1086,6 +1087,7 @@ obj/linux64/Release/src/ofApp.o: \
 /home/robert/myLibs/openFrameworks/libs/openFrameworks/3d/ofCamera.h:
 /home/robert/myLibs/openFrameworks/libs/openFrameworks/3d/ofEasyCam.h:
 /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/ParticleSystem.h:
-/home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Force.h:
 /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Particle.h:
+/home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Generator.h:
 /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Emitter.h:
+/home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/ParticleUpdater.h:
