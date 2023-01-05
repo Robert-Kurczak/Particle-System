@@ -1,5 +1,6 @@
 #include "ofMain.h"
 #include <vector>
+#include <memory>
 #include "Components/Particle.h"
 #include "Components/Generator.h"
 #include "Components/Emitter.h"
@@ -8,7 +9,7 @@
 class ParticleSystem{
 	private:
 		std::vector<Particle*> particlesVector;
-		
+
 		Emitter emitter = Emitter(particlesVector, 20, 100, 5000);
 
 		std::vector<ParticleUpdater*> updaters = {
@@ -16,20 +17,21 @@ class ParticleSystem{
 			new GravityUpdater
 		};
 
-	public:
-		void updateAndDraw(){
-			float deltaTime = ofGetLastFrameTime();
+public:
+	void updateAndDraw()	{
+		float deltaTime = ofGetLastFrameTime();
 
-			emitter.update(deltaTime);
+		// Possibly adding new particles to particlesVector
+		emitter.update(deltaTime);
 
-			for(size_t particleIndex = 0; particleIndex < particlesVector.size(); particleIndex++){
-				// if(!particlesVector[particleIndex] -> alive) continue;
+		for (size_t particleIndex = 0; particleIndex < particlesVector.size(); particleIndex++){
+			// if(!particlesVector[particleIndex] -> alive) continue;
 
-				for(size_t updaterIndex = 0; updaterIndex < updaters.size(); updaterIndex++){
-					updaters[updaterIndex] -> update(deltaTime, *particlesVector[particleIndex]);
-				}
-
-				particlesVector[particleIndex] -> draw();
+			for (size_t updaterIndex = 0; updaterIndex < updaters.size(); updaterIndex++){
+				updaters[updaterIndex]->update(deltaTime, *particlesVector[particleIndex]);
 			}
+
+			particlesVector[particleIndex]->draw();
 		}
+	}
 };
