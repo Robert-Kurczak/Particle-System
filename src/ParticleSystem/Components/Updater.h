@@ -4,9 +4,14 @@ class Updater{
 };
 
 class GravityUpdater: public Updater{
+	private:
+		float acceleration;
+
 	public:
+		GravityUpdater(float acceleration = -9.81): acceleration(acceleration){}
+
 		void update(float deltaTime, Particle& particle) override{
-			particle.velocity += ofVec3f(0, -9.81, 0) * deltaTime;
+			particle.velocity += ofVec3f(0, acceleration, 0) * deltaTime;
 			particle.position += particle.velocity * deltaTime;
 		}
 };

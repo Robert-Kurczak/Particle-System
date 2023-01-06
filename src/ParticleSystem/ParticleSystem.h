@@ -82,3 +82,31 @@ class SnowParticleSystem: public ParticleSystem{
 			)
 		{}
 };
+
+class FireParticleSystem: public ParticleSystem{
+	public:
+		FireParticleSystem
+		(
+			ofVec3f centerPosition,
+			float radius,
+			float height
+		):
+			ParticleSystem(
+				//Generators
+				std::vector<std::shared_ptr<ParticleAttrGenerator>>{
+					std::make_shared<CylinderPositionGenerator>(centerPosition, radius, height),
+					std::make_shared<VelocityGenerator>(ofVec3f(-2, 0, -2), ofVec3f(2, 20, 2)),
+					std::make_shared<RadiusGenerator>(0.1, 1),
+					std::make_shared<ColorGenerator>(ofColor(255, 0, 0), ofColor(255, 221, 0)),
+					std::make_shared<LifetimeGenerator>(0.1, 1)
+				},
+				//Emitter
+				Emitter(particlesVector, generatorsVector, 500, 0, 10000),
+				//Updaters
+				std::vector<std::shared_ptr<Updater>>{
+					std::make_shared<LifetimeUpdater>(),
+					std::make_shared<GravityUpdater>(5)
+				}
+			)
+		{}
+};

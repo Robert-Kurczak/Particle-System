@@ -1,4 +1,5 @@
 #include <random>
+#include <cmath>
 
 //Generates particle attribute with proper
 //algorithm
@@ -13,6 +14,19 @@ class ParticleAttrGenerator{
 		virtual void generate(Particle& particle) = 0;
 };
 
+class RadiusGenerator: public ParticleAttrGenerator{
+	public:
+		float startRadius;
+		float endRadius;
+
+		RadiusGenerator(float startRadius, float endRadius): startRadius(startRadius), endRadius(endRadius){}
+
+		void generate(Particle& particle){
+			particle.radius = randomFloat(startRadius, endRadius);
+		}
+};
+
+//---Position generators---
 class BoxPositionGenerator: public ParticleAttrGenerator{
 	private:
 		ofVec3f positionStart;
@@ -31,6 +45,31 @@ class BoxPositionGenerator: public ParticleAttrGenerator{
 			);
 		}
 };
+
+class CylinderPositionGenerator: public ParticleAttrGenerator{
+	private:
+		ofVec3f centerPosition;
+		float radius;
+		float height;
+
+	public:
+		CylinderPositionGenerator(ofVec3f centerPosition, float radius, float height):
+		centerPosition(centerPosition), radius(radius), height(height)
+		{}
+
+		void generate(Particle& particle) override{
+			float randomTheta = randomFloat(0, 2 * PI);
+			float randomRadius = randomFloat(0, radius);
+			float randomHeight = randomFloat(0, height);
+
+			particle.position = ofVec3f(
+				centerPosition.x + randomRadius * cos(randomTheta),
+				centerPosition.y + randomHeight,
+				centerPosition.z + randomRadius * sin(randomTheta)
+			);
+		}
+};
+//---
 
 class VelocityGenerator: public ParticleAttrGenerator{
 	private:
@@ -77,6 +116,7 @@ class LifetimeGenerator: public ParticleAttrGenerator{
 		}
 };
 
+//---Color generators---
 class ColorGenerator: public ParticleAttrGenerator{
 	private:
 		ofColor colorStart;
@@ -93,3 +133,16 @@ class ColorGenerator: public ParticleAttrGenerator{
 			);
 		}
 };
+
+class StaticColorGenerator: public ParticleAttrGenerator{
+	private:
+		ofColor color;
+	
+	public:
+		StaticColorGenerator(ofColor color): color(color){}
+	
+		void generate(Particle& particle) override{
+			particle.color = color;
+		}
+};
+//------
