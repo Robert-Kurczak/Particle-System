@@ -1,11 +1,11 @@
+//Emitter connects all generators, forms a particle using them
+//and emits it with proper frequency
 class Emitter{
 	private:
 		//---Parameters---
 		std::vector<Particle>& particlesVector;
 
-		std::vector<std::shared_ptr<ParticleAttrGenerator>> generatorsVector = {
-			std::make_shared<BoxPositionGenerator>(ofVec3f(-40, -40, -40), ofVec3f(40, 40, 40))
-		};
+		std::vector<std::shared_ptr<ParticleAttrGenerator>>& generatorsVector;
 
 		float emissionRate;
 		float startParticlesAmount;
@@ -28,11 +28,13 @@ class Emitter{
 		Emitter
 		(
 			std::vector<Particle>& particlesVector,
+			std::vector<std::shared_ptr<ParticleAttrGenerator>>& generatorsVector,
 			float emissionRate,
 			float startParticlesAmount,
 			float maxParticlesAmount
 		):
 			particlesVector(particlesVector),
+			generatorsVector(generatorsVector),
 			emissionRate(emissionRate),
 			startParticlesAmount(startParticlesAmount),
 			maxParticlesAmount(maxParticlesAmount)
@@ -45,12 +47,16 @@ class Emitter{
 		void update(double deltaTime){
 			timer += deltaTime;
 
+			int particlesToEmit = timer * emissionRate;
+
 			//Time for creating particle
-			if(timer * emissionRate >= 1){
+			if(particlesToEmit >= 1){
 				timer = 0;
 
-				if(particlesVector.size() < maxParticlesAmount){
-					particlesVector.push_back(getNewParticle());
+				for(int i = 0; i < particlesToEmit; i++){
+					if(particlesVector.size() < maxParticlesAmount){
+						particlesVector.push_back(getNewParticle());
+					}
 				}
 			}
 		}

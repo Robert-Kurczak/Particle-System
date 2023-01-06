@@ -1,10 +1,7 @@
 #include <random>
 
-class ParticleGenerator{
-	public:
-		virtual Particle* generate() = 0;
-};
-
+//Generates particle attribute with proper
+//algorithm
 class ParticleAttrGenerator{
 	public:
 		std::mt19937 mt = std::mt19937(std::random_device{}());
@@ -67,26 +64,26 @@ class MassGenerator: public ParticleAttrGenerator{
 		}
 };
 
-class lifeTimeGenerator: public ParticleAttrGenerator{
+class LifetimeGenerator: public ParticleAttrGenerator{
 	private:
 		float lifeTimeStart;
 		float lifeTimeEnd;
 
 	public:
-		lifeTimeGenerator(float lifeTimeStart, float lifeTimeEnd): lifeTimeStart(lifeTimeStart), lifeTimeEnd(lifeTimeEnd){}
+		LifetimeGenerator(float lifeTimeStart, float lifeTimeEnd): lifeTimeStart(lifeTimeStart), lifeTimeEnd(lifeTimeEnd){}
 
 		void generate(Particle& particle) override{
 			particle.lifeTime = randomFloat(lifeTimeStart, lifeTimeEnd);
 		}
 };
 
-class colorGenerator: public ParticleAttrGenerator{
+class ColorGenerator: public ParticleAttrGenerator{
 	private:
 		ofColor colorStart;
 		ofColor colorEnd;
 
 	public:
-		colorGenerator(ofColor colorStart, ofColor colorEnd): colorStart(colorStart), colorEnd(colorEnd){}
+		ColorGenerator(ofColor colorStart, ofColor colorEnd): colorStart(colorStart), colorEnd(colorEnd){}
 
 		void generate(Particle& particle) override{
 			particle.color = ofColor(

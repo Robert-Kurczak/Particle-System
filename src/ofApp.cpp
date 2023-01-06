@@ -2,7 +2,8 @@
 #include "ParticleSystem/ParticleSystem.h"
 
 ofEasyCam mainCamera;
-ParticleSystem particleSystem;
+SnowParticleSystem snowParticles(ofVec3f(0, 0, 0), ofVec3f(1000, -5, 500), -500);
+
 //--------------------------------------------------------------
 void ofApp::setup(){
 }
@@ -16,7 +17,7 @@ void ofApp::update(){
 void ofApp::draw(){
 	ofClear(ofColor::black);
 	mainCamera.begin();
-	particleSystem.updateAndDraw();
+	snowParticles.updateAndDraw();
 	mainCamera.end();
 }
 
