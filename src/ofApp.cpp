@@ -1,34 +1,23 @@
 #include "ofApp.h"
 #include "ParticleSystem/ParticleSystem.h"
 
-ParticleSystem particleSystem;
-Emitter emitter01(
-	1, 5,										//radius
-	1, 10,										//mass
-	ofVec3f(0, 0, 0), ofVec3f(100, 100, 100),	//position
-	ofVec3f(50, 50, 50), ofVec3f(-50, -50, -50),//velocity
-	3, 10,										//lifetime
-	ofColor(255, 255, 255),						//color
-	10											//emissionRate
-);
-
 ofEasyCam mainCamera;
+SnowParticleSystem snowParticles(ofVec3f(0, 0, 0), ofVec3f(1000, -5, 500), -500);
+
 //--------------------------------------------------------------
 void ofApp::setup(){
-	emitter01.forces.push_back(new Gravity);
-	particleSystem.addEmiter(emitter01);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	particleSystem.updateParticles();
+
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 	ofClear(ofColor::black);
 	mainCamera.begin();
-	particleSystem.drawParticles();
+	snowParticles.updateAndDraw();
 	mainCamera.end();
 }
 
