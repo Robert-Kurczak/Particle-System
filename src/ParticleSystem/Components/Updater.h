@@ -37,15 +37,16 @@ class FloorCollisionUpdater: public Updater{
 		void update(float deltaTime, Particle& particle) override{
 			if(particle.position.y + particle.radius > floorPosition){
 				particle.position.y = floorPosition - particle.radius;
+				particle.velocity = ofVec3f(0, 0, 0);
 			}
 		}
 };
 
 class SphereCollisionUpdater: public Updater{
 	private:
-		std::vector<ofSpherePrimitive> spheres; 
+		std::vector<ofSpherePrimitive>& spheres; 
 	public:
-		SphereCollisionUpdater(std::vector<ofSpherePrimitive> spheres): spheres(spheres){}
+		SphereCollisionUpdater(std::vector<ofSpherePrimitive>& spheres): spheres(spheres){}
 
 		void update(float deltaTime, Particle& particle) override{
 			for(size_t i = 0; i < spheres.size(); i++){
@@ -56,6 +57,7 @@ class SphereCollisionUpdater: public Updater{
 					float overlap = (sphereRadius + particle.radius) - distance;
 
 					particle.position -= overlap * particle.velocity.getNormalized();
+					particle.velocity = ofVec3f(0, 0, 0);
 				}
 			}
 		};

@@ -17,9 +17,12 @@ SnowParticleSystem snowParticles(
 FireParticleSystem fireParticles(ofVec3f(0, 0, 0), 40, 10);
 
 Snowman snowman(ofVec3f(resolutionX / 2, 0, resolutionY / 3));
+Spruce spruce(ofVec3f(0, 0, 0));
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+	snowParticles.addSphereColliders(snowman.spheres);
+	
 	mainCamera.panDeg(180);
 	mainCamera.rollDeg(180);
 }
@@ -37,6 +40,7 @@ void ofApp::draw(){
 	snowParticles.updateAndDraw();
 	fireParticles.updateAndDraw();
 	snowman.draw();
+	spruce.draw();
 
 	mainCamera.end();
 }

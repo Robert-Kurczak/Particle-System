@@ -13,7 +13,7 @@ class ParticleSystem{
 		//generators are only used by emitters, but having them here,
 		//creates easy access, and easy configuration (in one place),
 		//of whole particle system
-		std::vector<std::shared_ptr<ParticleAttrGenerator>> generatorsVector;
+		std::vector<std::shared_ptr<ParticleAttrGenerator>> generators;
 		Emitter emitter;
 		std::vector<std::shared_ptr<Updater>> updaters;
 
@@ -25,11 +25,11 @@ class ParticleSystem{
 	public:
 		ParticleSystem
 		(
-			std::vector<std::shared_ptr<ParticleAttrGenerator>> generatorsVector,
+			std::vector<std::shared_ptr<ParticleAttrGenerator>> generators,
 			Emitter emitter,
 			std::vector<std::shared_ptr<Updater>> updaters
 		):
-			generatorsVector(generatorsVector),
+			generators(generators),
 			emitter(emitter),
 			updaters(updaters)
 		{}
@@ -54,6 +54,12 @@ class ParticleSystem{
 				}
 			}
 		}
+
+		void addSphereColliders(std::vector<ofSpherePrimitive>& spheres){
+			updaters.push_back(
+				std::make_shared<SphereCollisionUpdater>(spheres)
+			);
+		}
 };
 
 class SnowParticleSystem: public ParticleSystem{
@@ -72,7 +78,7 @@ class SnowParticleSystem: public ParticleSystem{
 					std::make_shared<LifetimeGenerator>(10, 30)
 				},
 				//Emitter
-				Emitter(particlesVector, generatorsVector, 500, 500, 50000),
+				Emitter(particlesVector, generators, 500, 500, 50000),
 				//Updaters
 				std::vector<std::shared_ptr<Updater>>{
 					std::make_shared<LifetimeUpdater>(),
@@ -101,7 +107,7 @@ class FireParticleSystem: public ParticleSystem{
 					std::make_shared<LifetimeGenerator>(0.1, 3)
 				},
 				//Emitter
-				Emitter(particlesVector, generatorsVector, 1000, 0, 100000),
+				Emitter(particlesVector, generators, 1000, 0, 100000),
 				//Updaters
 				std::vector<std::shared_ptr<Updater>>{
 					std::make_shared<LifetimeUpdater>(),
