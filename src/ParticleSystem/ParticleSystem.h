@@ -72,7 +72,7 @@ class SnowParticleSystem: public ParticleSystem{
 					std::make_shared<LifetimeGenerator>(10, 30)
 				},
 				//Emitter
-				Emitter(particlesVector, generatorsVector, 200, 100, 5000),
+				Emitter(particlesVector, generatorsVector, 500, 500, 50000),
 				//Updaters
 				std::vector<std::shared_ptr<Updater>>{
 					std::make_shared<LifetimeUpdater>(),
@@ -95,17 +95,17 @@ class FireParticleSystem: public ParticleSystem{
 				//Generators
 				std::vector<std::shared_ptr<ParticleAttrGenerator>>{
 					std::make_shared<CylinderPositionGenerator>(centerPosition, radius, height),
-					std::make_shared<VelocityGenerator>(ofVec3f(-2, 0, -2), ofVec3f(2, 20, 2)),
-					std::make_shared<RadiusGenerator>(0.1, 1),
+					std::make_shared<VelocityGenerator>(ofVec3f(-2, -40, -2), ofVec3f(2, 0, 2)),
+					std::make_shared<RadiusGenerator>(0.5, 1),
 					std::make_shared<ColorGenerator>(ofColor(255, 0, 0), ofColor(255, 221, 0)),
-					std::make_shared<LifetimeGenerator>(0.1, 1)
+					std::make_shared<LifetimeGenerator>(0.1, 3)
 				},
 				//Emitter
-				Emitter(particlesVector, generatorsVector, 500, 0, 10000),
+				Emitter(particlesVector, generatorsVector, 1000, 0, 100000),
 				//Updaters
 				std::vector<std::shared_ptr<Updater>>{
 					std::make_shared<LifetimeUpdater>(),
-					std::make_shared<GravityUpdater>(5)
+					std::make_shared<GravityUpdater>(-20)
 				}
 			)
 		{}

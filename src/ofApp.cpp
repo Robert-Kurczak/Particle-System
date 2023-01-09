@@ -1,13 +1,27 @@
 #include "ofApp.h"
+
 #include "ParticleSystem/ParticleSystem.h"
+#include "SceneObjects/SceneObjects.h"
+
+#define resolutionX 1280
+#define resolutionY 720
 
 ofEasyCam mainCamera;
 
-SnowParticleSystem snowParticles(ofVec3f(0, 0, 0), ofVec3f(1000, -5, 500), -500);
-FireParticleSystem fireParticles(ofVec3f(500, -500, 250), 20, 0);
+SnowParticleSystem snowParticles(
+	ofVec3f(-resolutionX, -resolutionY, -resolutionY),
+	ofVec3f(resolutionX, -resolutionY, resolutionY),
+	0
+);
+
+FireParticleSystem fireParticles(ofVec3f(0, 0, 0), 40, 10);
+
+Snowman snowman(ofVec3f(resolutionX / 2, 0, resolutionY / 3));
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+	mainCamera.panDeg(180);
+	mainCamera.rollDeg(180);
 }
 
 //--------------------------------------------------------------
@@ -19,8 +33,11 @@ void ofApp::update(){
 void ofApp::draw(){
 	ofClear(ofColor::black);
 	mainCamera.begin();
+
 	snowParticles.updateAndDraw();
 	fireParticles.updateAndDraw();
+	snowman.draw();
+
 	mainCamera.end();
 }
 
