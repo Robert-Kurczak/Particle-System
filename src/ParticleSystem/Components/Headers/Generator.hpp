@@ -1,5 +1,9 @@
+#pragma once
+
 #include <random>
 #include <cmath>
+
+#include "ofMain.h"
 
 //Generates particle attribute with proper
 //algorithm

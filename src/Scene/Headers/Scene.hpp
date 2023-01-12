@@ -1,3 +1,13 @@
+#pragma once
+
+#include "ofMain.h"
+#include <vector>
+#include <memory>
+
+#include "SceneObjects.hpp"
+#include "../../ParticleSystem/ParticleSystem.hpp"
+
+
 class Scene{
 protected:
 	ofEasyCam mainCamera;
@@ -44,6 +54,8 @@ class ChristmasScene: public Scene{
 private:
 	void createSceneObjects(){
 		sceneObjects = {
+			//Ground
+			std::make_shared<GroundPlane>(ofVec3f(0, 0, 0), ofVec2f(dimensions.x, dimensions.z)),
 			//Snowman
 			std::make_shared<Snowman>(ofVec3f(dimensions.x / 4.5, 0, dimensions.z / 8.f)),
 			//---Trees---
@@ -103,7 +115,7 @@ public:
 		mainCamera.rollDeg(180);
 
 		particleSystems[0] -> addSphereColliders(
-			std::dynamic_pointer_cast<Snowman>(sceneObjects[0]) -> spheres
+			std::dynamic_pointer_cast<Snowman>(sceneObjects[1]) -> spheres
 		);
 	}
 };

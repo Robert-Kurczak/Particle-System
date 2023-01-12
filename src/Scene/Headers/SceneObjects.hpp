@@ -1,6 +1,27 @@
+#pragma once
+
+#include "ofMain.h"
+
 class SceneObject{    
 	public:
 		virtual void draw() = 0;
+};
+
+class GroundPlane: public SceneObject{
+	public:
+		ofPlanePrimitive plane;
+		ofColor color;
+
+		GroundPlane(ofVec3f position, ofVec2f dimensions, ofColor color = ofColor(10, 95, 56)): color(color){
+			plane.setPosition(position);
+			plane.set(dimensions.x, dimensions.y);
+			plane.rotateDeg(90, 1, 0, 0);
+		}
+
+		void draw() override{
+			ofSetColor(color);
+			plane.draw();
+		}
 };
 
 class Snowman: public SceneObject{

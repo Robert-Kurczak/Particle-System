@@ -1,3 +1,11 @@
+#pragma once
+
+#include <vector>
+#include <memory>
+
+#include "Particle.hpp"
+#include "Generator.hpp"
+
 //Emitter connects all generators, forms a particle using them
 //and emits it with proper frequency
 class Emitter{

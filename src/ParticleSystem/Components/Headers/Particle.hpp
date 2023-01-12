@@ -1,3 +1,7 @@
+#pragma once
+
+#include "ofMain.h"
+
 class Particle{
 	public:
 		ofVec3f position = {0, 0, 0};

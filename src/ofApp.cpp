@@ -1,14 +1,8 @@
 #include "ofApp.h"
 
+#include "Scene/Headers/Scene.hpp"
+
 ChristmasScene scene(ofVec3f(1920, 720, 1280));
-
-ofVec3f dimensions(1920, 720, 1280);
-
-// SnowParticleSystem snow(
-// 	ofVec3f(-dimensions.x / 2, -dimensions.y, -dimensions.z / 2),
-// 	ofVec3f(dimensions.x / 2, -dimensions.y, dimensions.z / 2),
-// 	0
-// );
 
 //--------------------------------------------------------------
 void ofApp::setup(){

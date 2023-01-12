@@ -1,10 +1,10 @@
 #include "ofMain.h"
 #include <vector>
-#include <memory>
-#include "Components/Particle.h"
-#include "Components/Generator.h"
-#include "Components/Emitter.h"
-#include "Components/Updater.h"
+
+#include "Components/Headers/Particle.hpp"
+#include "Components/Headers/Generator.hpp"
+#include "Components/Headers/Updater.hpp"
+#include "Components/Headers/Emitter.hpp"
 
 class ParticleSystem{
 protected:

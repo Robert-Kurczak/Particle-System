@@ -1,3 +1,8 @@
+#pragma once
+
+#include "ofMain.h"
+#include "Particle.hpp"
+
 class Updater{
 	public:
 		virtual void update(float deltaTime, Particle& particle) = 0;
