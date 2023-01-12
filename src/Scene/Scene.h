@@ -2,8 +2,10 @@ class Scene{
 protected:
 	ofEasyCam mainCamera;
 	ofVec3f dimensions;
+	
 	std::vector<std::shared_ptr<SceneObject>> sceneObjects;
 	std::vector<std::shared_ptr<ParticleSystem>> particleSystems;
+	std::vector<ofLight> lightSources;
 
 public:
 	Scene(ofVec3f dimensions): dimensions(dimensions){}
@@ -12,7 +14,8 @@ public:
 	(
 		ofVec3f dimensions,
 		std::vector<std::shared_ptr<SceneObject>> sceneObjects,
-		std::vector<std::shared_ptr<ParticleSystem>> particleSystems
+		std::vector<std::shared_ptr<ParticleSystem>> particleSystems,
+		std::vector<ofLight> lightSources
 	):
 		dimensions(dimensions),
 		sceneObjects(sceneObjects),
@@ -68,14 +71,30 @@ private:
 				ofVec3f(dimensions.x / 2, -dimensions.y, dimensions.z / 2),
 				0
 			),
+
 			std::make_shared<FireParticleSystem>(ofVec3f(0, 0, 0), 40, 10)
 		};
 	}
 
+	// void createLightSources(){
+	// 	ofLight* fireplaceLight = new ofLight;
+	// 	fireplaceLight -> setPointLight();
+	// 	fireplaceLight -> setPosition(ofVec3f(0, 0, 0));
+	// 	fireplaceLight -> setDiffuseColor(ofColor(226, 88, 34));
+	// 	fireplaceLight -> enable();
+
+	// 	// lightSources = {fireplaceLight};
+	// }
+
 public:
 	ChristmasScene(ofVec3f dimensions): Scene(dimensions){
+		// load();
+	}
+
+	void load(){
 		createSceneObjects();
 		createParticleSystems();
+		// createLightSources();
 		
 		mainCamera.panDeg(180);
 		mainCamera.rollDeg(180);
