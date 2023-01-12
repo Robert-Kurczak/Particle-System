@@ -76,27 +76,34 @@ private:
 		};
 	}
 
-	// void createLightSources(){
-	// 	ofLight* fireplaceLight = new ofLight;
-	// 	fireplaceLight -> setPointLight();
-	// 	fireplaceLight -> setPosition(ofVec3f(0, 0, 0));
-	// 	fireplaceLight -> setDiffuseColor(ofColor(226, 88, 34));
-	// 	fireplaceLight -> enable();
+	void createLightSources(){
+		//---Fireplace---
+		ofLight fireplaceLight;
+		fireplaceLight.setPointLight();
+		fireplaceLight.setPosition(ofVec3f(0, -dimensions.y / 10, 0));
+		fireplaceLight.setDiffuseColor(ofColor(226, 88, 34));
+		fireplaceLight.setSpecularColor(ofColor::white);
 
-	// 	// lightSources = {fireplaceLight};
-	// }
+		fireplaceLight.enable();
+		//------
+
+		lightSources.push_back(fireplaceLight);
+		// lightSources[0].disable();
+	}
 
 public:
-	ChristmasScene(ofVec3f dimensions): Scene(dimensions){
-		// load();
-	}
+	ChristmasScene(ofVec3f dimensions): Scene(dimensions){}
 
 	void load(){
 		createSceneObjects();
 		createParticleSystems();
-		// createLightSources();
+		createLightSources();
 		
 		mainCamera.panDeg(180);
 		mainCamera.rollDeg(180);
+
+		particleSystems[0] -> addSphereColliders(
+			std::dynamic_pointer_cast<Snowman>(sceneObjects[0]) -> spheres
+		);
 	}
 };

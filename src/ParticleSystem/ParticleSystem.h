@@ -82,32 +82,6 @@ public:
 
 class SnowParticleSystem: public ParticleSystem{
 public:
-	// SnowParticleSystem
-	// (
-	// 	ofVec3f startEmittPosition,
-	// 	ofVec3f endEmittPosition,
-	// 	float floorPosition
-	// ):
-	// 	ParticleSystem(
-	// 		//Generators
-	// 		std::vector<std::shared_ptr<ParticleAttrGenerator>>{
-	// 			std::make_shared<BoxPositionGenerator>(startEmittPosition, endEmittPosition),
-	// 			std::make_shared<VelocityGenerator>(ofVec3f(-5, -5, -5), ofVec3f(5, 5, 5)),
-	// 			std::make_shared<LifetimeGenerator>(10, 30)
-	// 		},
-	// 		//Updaters
-	// 		std::vector<std::shared_ptr<Updater>>{
-	// 			std::make_shared<LifetimeUpdater>(),
-	// 			std::make_shared<GravityUpdater>(),
-	// 			std::make_shared<FloorCollisionUpdater>(floorPosition)
-	// 		},
-
-	// 		500,
-	// 		500,
-	// 		50000
-	// 	)
-	// {}
-
 	SnowParticleSystem(ofVec3f startEmittPosition, ofVec3f endEmittPosition, float floorPosition){
 		generators = {
 			std::make_shared<BoxPositionGenerator>(startEmittPosition, endEmittPosition),
