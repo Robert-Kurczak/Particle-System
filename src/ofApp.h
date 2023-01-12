@@ -2,6 +2,10 @@
 
 #include "ofMain.h"
 
+#include "ParticleSystem/ParticleSystem.h"
+#include "Scene/SceneObjects.h"
+#include "Scene/Scene.h"
+
 class ofApp : public ofBaseApp{
 
 	public:
