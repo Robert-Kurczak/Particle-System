@@ -2,7 +2,7 @@
 
 #include "ofMain.h"
 
-class SceneObject{    
+class SceneObject{
 	public:
 		virtual void draw() = 0;
 };
