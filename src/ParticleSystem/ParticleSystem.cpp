@@ -12,16 +12,17 @@ ParticleSystem::ParticleSystem(){}
 //public:
 ParticleSystem::ParticleSystem
 (
-	std::vector<std::shared_ptr<ParticleAttrGenerator>> generators,
-	std::vector<std::shared_ptr<Updater>> updaters,
+	std::vector<std::shared_ptr<ParticleAttrGenerator>> generatorsVector,
+	std::vector<std::shared_ptr<Updater>> updatersVector,
 
 	float emissionRate,
 	float startParticlesAmount,
 	float maxParticlesAmount
 ):
-	generators(generators),
-	updaters(updaters)
+	generators(generatorsVector),
+	updaters(updatersVector)
 {
+
 	emitter = std::make_unique<Emitter>(
 		particlesVector,
 		generators,

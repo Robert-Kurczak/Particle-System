@@ -1,4 +1,4 @@
-#include "Headers/SceneObjects.hpp"
+#include "SceneObjects.hpp"
 
 //---Ground Plane---
 GroundPlane::GroundPlane(

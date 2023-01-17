@@ -1,4 +1,4 @@
-#include "Headers/Scene.hpp"
+#include "Scene.hpp"
 
 //---Base class---
 Scene::Scene(ofVec3f dimensions): dimensions(dimensions){}
@@ -14,6 +14,11 @@ Scene::Scene
 	sceneObjects(sceneObjects),
 	particleSystems(particleSystems)
 {}
+
+void Scene::load(){
+	mainCamera.panDeg(180);
+	mainCamera.rollDeg(180);
+}
 
 void Scene::draw(){
 	ofClear(ofColor::black);

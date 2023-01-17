@@ -1,6 +1,8 @@
 #include "ofApp.h"
 
-#include "Scene/Headers/Scene.hpp"
+// #include "ParticleSystem/ParticleSystem.hpp"
+
+#include "Scene/Scene.hpp"
 
 ChristmasScene scene(ofVec3f(1920, 720, 1280));
 

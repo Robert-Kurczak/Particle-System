@@ -532,13 +532,11 @@ obj/linux64/Debug/src/ofApp.o: \
  /home/robert/myLibs/openFrameworks/libs/openFrameworks/3d/of3dUtils.h \
  /home/robert/myLibs/openFrameworks/libs/openFrameworks/3d/ofCamera.h \
  /home/robert/myLibs/openFrameworks/libs/openFrameworks/3d/ofEasyCam.h \
- /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/ParticleSystem.h \
- /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Particle.h \
- /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Generator.h \
- /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Emitter.h \
- /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Updater.h \
- /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/Scene/SceneObjects.h \
- /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/Scene/Scene.h
+ /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/ParticleSystem.hpp \
+ /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Headers/Particle.hpp \
+ /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Headers/Generator.hpp \
+ /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Headers/Updater.hpp \
+ /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Headers/Emitter.hpp
 /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ofApp.h:
 /home/robert/myLibs/openFrameworks/libs/openFrameworks/ofMain.h:
 /home/robert/myLibs/openFrameworks/libs/openFrameworks/utils/ofConstants.h:
@@ -1088,10 +1086,8 @@ obj/linux64/Debug/src/ofApp.o: \
 /home/robert/myLibs/openFrameworks/libs/openFrameworks/3d/of3dUtils.h:
 /home/robert/myLibs/openFrameworks/libs/openFrameworks/3d/ofCamera.h:
 /home/robert/myLibs/openFrameworks/libs/openFrameworks/3d/ofEasyCam.h:
-/home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/ParticleSystem.h:
-/home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Particle.h:
-/home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Generator.h:
-/home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Emitter.h:
-/home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Updater.h:
-/home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/Scene/SceneObjects.h:
-/home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/Scene/Scene.h:
+/home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/ParticleSystem.hpp:
+/home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Headers/Particle.hpp:
+/home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Headers/Generator.hpp:
+/home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Headers/Updater.hpp:
+/home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/ParticleSystem/Components/Headers/Emitter.hpp:

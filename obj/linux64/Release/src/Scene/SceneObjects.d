@@ -1,6 +1,6 @@
 obj/linux64/Release/src/Scene/SceneObjects.o: \
  /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/Scene/SceneObjects.cpp \
- /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/Scene/Headers/SceneObjects.hpp \
+ /home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/Scene/SceneObjects.hpp \
  /home/robert/myLibs/openFrameworks/libs/openFrameworks/ofMain.h \
  /home/robert/myLibs/openFrameworks/libs/openFrameworks/utils/ofConstants.h \
  /home/robert/myLibs/openFrameworks/libs/tess2/include/tesselator.h \
@@ -532,7 +532,7 @@ obj/linux64/Release/src/Scene/SceneObjects.o: \
  /home/robert/myLibs/openFrameworks/libs/openFrameworks/3d/of3dUtils.h \
  /home/robert/myLibs/openFrameworks/libs/openFrameworks/3d/ofCamera.h \
  /home/robert/myLibs/openFrameworks/libs/openFrameworks/3d/ofEasyCam.h
-/home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/Scene/Headers/SceneObjects.hpp:
+/home/robert/myLibs/openFrameworks/apps/myApps/ParticleSystem/src/Scene/SceneObjects.hpp:
 /home/robert/myLibs/openFrameworks/libs/openFrameworks/ofMain.h:
 /home/robert/myLibs/openFrameworks/libs/openFrameworks/utils/ofConstants.h:
 /home/robert/myLibs/openFrameworks/libs/tess2/include/tesselator.h:
