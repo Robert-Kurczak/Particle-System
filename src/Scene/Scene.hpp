@@ -5,7 +5,7 @@
 #include <memory>
 
 #include "SceneObjects.hpp"
-#include "../../ParticleSystem/ParticleSystem.hpp"
+#include "../ParticleSystem/ParticleSystem.hpp"
 
 class Scene{
 protected:
